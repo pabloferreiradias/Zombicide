@@ -1,35 +1,87 @@
-var heroImg = new Image();
-var heroSprite;
+var hero;
+var canvas;
 var stage;
+var mission;
+
+var clickX;
+var clickY;
+
+var playersTurn = false;
+var zombiesTurn = false;
+var boardTurn = false;
 
 function init() {
+	canvas = document.getElementById("mainCanvas");
+	stage = new createjs.Stage(canvas);
 
-	stage = new createjs.Stage("mainCanvas");
-	createjs.Ticker.addEventListener("tick", handleTick);
+	createjs.Touch.enable(stage);
+	// stage.addEventListener("stagemousedown", handleMouseDown);
 
-	var mission = loadMission("mission1");
+	mission = loadMission("mission1");
 
-	drawMap(mission);
+	manifest = [
+		{src: "survivor/handgun/idle.png", id: "hero"}
+	];
 
-	var hero = newHero();
+	drawMap();
 
-	var inicio = stage.getChildByName('start');
-	var heroSprite = stage.getChildByName('hero');
-
-	console.log(inicio.x);
-	console.log(heroSprite);
-
-	//heroSprite.x = inicio.x;
-	//heroSprite.y = inicio.y;
-
+	loader = new createjs.LoadQueue(true);
+	loader.addEventListener("complete", handleComplete);
+	loader.loadManifest(manifest, true, "../img/");
 
 }
 
-function handleTick(event) {
-     stage.update();
- }
+function handleComplete() {
+	//examples.hideDistractor();
 
-function drawMap(mission){
+	heroHeight = 54;
+	heroWidth = 63;
+
+	var spriteSheet = new createjs.SpriteSheet({
+			framerate: 30,
+			"images": [loader.getResult("hero")],
+			"frames": {"regX": 0, "height": heroHeight, "count": 20, "regY": 0, "width": heroWidth},
+			"animations": {
+				"idle": [0, 19, "idle"]
+			}
+		});
+
+	heroSprite = new createjs.Sprite(spriteSheet, "idle");
+	heroSprite.y = mission.yGoal - (heroHeight/2);
+	heroSprite.x = mission.xGoal - (heroWidth/2);
+
+	hero = newHero(heroSprite);
+
+	createjs.Ticker.timingMode = createjs.Ticker.RAF;
+	createjs.Ticker.addEventListener("tick", tick);
+
+	playersTurn = true;
+	playTurn();
+}
+
+function newHero(heroSprite){
+
+	var inventario = [];
+	var hero = {
+			sprite: heroSprite,
+			//sprite_sheet: sprite_sheet,
+		    x: 0,
+		    y: 0,
+		    rotation: 0,
+		    xp: 0,
+		    acoes: 3,
+		    ferimentos: 0,
+		    equipamentoAtivo1: '',
+		    equipamentoAtivo2: '',
+		    inventario: inventario
+		};
+
+	stage.addChild(hero.sprite);
+
+	return hero;
+}
+
+function drawMap(){
 
 	for (var i = 1; i <= mission.streets.length; i++) {
 		x = mission.streets[i-1].x;
@@ -67,48 +119,20 @@ function drawMap(mission){
 
 }
 
-function newHero(){
-	
-	heroImg.onload = handleImageHero;
-	heroImg.src = "img/survivor/handgun/idle.png";
-
-	var inventario = [];
-
-	var hero = {
-			//sprite: sprite,
-			//sprite_sheet: sprite_sheet,
-		    x: 0,
-		    y: 0,
-		    rotation: 0,
-		    xp: 0,
-		    acoes: 3,
-		    ferimentos: 0,
-		    equipamentoAtivo1: '',
-		    equipamentoAtivo2: '',
-		    inventario: inventario
-		};
-
-	return hero;
-}
-
-function handleImageHero(e){
-	var frameData = {
-		images: [heroImg],
-        frames: {width:63, height:54},
-        animations: {
-            idle:[0,19,"idle"]
-        }
+function playTurn(){
+	if (playTurn) {
+		canvas.onclick = handleMouseDown;
+		console.log(clickX + " X " + clickY);
 	};
-
-	var spriteSheet = new createjs.SpriteSheet(frameData);
-
-	heroSprite = new createjs.Sprite(spriteSheet, "idle");
-	heroSprite.gotoAndPlay("idle");
-
-	heroSprite.x = 0;
-	heroSprite.y = 0;
-	heroSprite.name = "heroSprite";
-
-	stage.addChild(heroSprite);
-	stage.update();
 }
+
+function handleMouseDown(event) {
+	canvas.onclick = null;
+	clickX = stage.mouseX;
+	clickY = stage.mouseY;
+}
+
+function tick(event) {
+	stage.update(event);
+}
+

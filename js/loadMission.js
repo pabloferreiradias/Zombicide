@@ -17,7 +17,11 @@ function loadMission(nameMission){
 	//Pegar uma variavel na raiz
 	num_streets = Mission.getElementsByTagName('num_streets')[0].textContent;
 	num_rooms = Mission.getElementsByTagName('num_rooms')[0].textContent; 
-	num_gates = Mission.getElementsByTagName('num_gates')[0].textContent;  
+	num_gates = Mission.getElementsByTagName('num_gates')[0].textContent;
+
+	//Variaveis Necessarias
+	xGoal = 0;
+	yGoal = 0; 
 
 
 	//Inicio pegar um conjunto de variaveis - RUA
@@ -36,6 +40,11 @@ function loadMission(nameMission){
 		var is_start = street.getElementsByTagName('is_start')[0].textContent;
 		var is_goal = street.getElementsByTagName('is_goal')[0].textContent;
 		var has_manhole = street.getElementsByTagName('has_manhole')[0].textContent;
+
+		if(is_goal == '1'){
+			xGoal = parseInt(x + (width/2));
+			yGoal = parseInt(y + (heigth/2));
+		}
 
 		var newStreet = {
 			image: image,
@@ -71,7 +80,13 @@ function loadMission(nameMission){
 		var door_left = room.getElementsByTagName('door_left')[0].textContent;
 		var door_right = room.getElementsByTagName('door_right')[0].textContent;
 		var is_start = room.getElementsByTagName('is_start')[0].textContent;
-		var is_goal = street.getElementsByTagName('is_goal')[0].textContent;
+		var is_goal = room.getElementsByTagName('is_goal')[0].textContent;
+
+		if(is_goal == '1'){
+			xGoal = parseInt(x + (width/2));
+			yGoal = parseInt(y + (heigth/2));
+		}
+
 
 		var newRoom = {
 			image: image,
@@ -96,6 +111,8 @@ function loadMission(nameMission){
 		num_streets: num_streets,
 		num_rooms: num_rooms,
 		num_gates: num_gates,
+		xGoal: xGoal,
+		yGoal: yGoal,
 		streets: streets,
 		rooms: rooms
 	};
