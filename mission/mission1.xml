@@ -1,0 +1,193 @@
+<xml>
+<mission>
+	<num_streets>7</num_streets>
+	<num_rooms>7</num_rooms>
+	<num_gates>1</num_gates>
+	<streets>
+		<street id="1">
+			<img>1</img> <!-- Frame da imagem -->
+			<x>0</x>
+			<y>320</y>
+			<rotation>0</rotation>
+			<width>120</width>
+			<heigth>80</heigth>
+			<is_gate>1</is_gate>
+			<is_start>0</is_start>
+			<is_goal>0</is_goal>
+			<has_manhole>0</has_manhole>
+		</street>
+		<street id="2">
+			<img>1</img> <!-- Frame da imagem -->
+			<x>120</x>
+			<y>320</y>
+			<rotation>0</rotation>
+			<width>200</width>
+			<heigth>80</heigth>
+			<is_gate>0</is_gate>
+			<is_start>0</is_start>
+			<is_goal>0</is_goal>
+			<has_manhole>0</has_manhole>
+		</street>
+		<street id="3">
+			<img>1</img> <!-- Frame da imagem -->
+			<x>320</x>
+			<y>320</y>
+			<rotation>0</rotation>
+			<width>160</width>
+			<heigth>80</heigth>
+			<is_gate>0</is_gate>
+			<is_start>0</is_start>
+			<is_goal>0</is_goal>
+			<has_manhole>0</has_manhole>
+		</street>
+		<street id="4">
+			<img>1</img> <!-- Frame da imagem -->
+			<x>320</x>
+			<y>80</y>
+			<rotation>0</rotation>
+			<width>160</width>
+			<heigth>240</heigth>
+			<is_gate>0</is_gate>
+			<is_start>0</is_start>
+			<is_goal>0</is_goal>
+			<has_manhole>1</has_manhole>
+		</street>
+		<street id="5">
+			<img>1</img> <!-- Frame da imagem -->
+			<x>320</x>
+			<y>0</y>
+			<rotation>0</rotation>
+			<width>160</width>
+			<heigth>80</heigth>
+			<is_gate>0</is_gate>
+			<is_start>0</is_start>
+			<is_goal>0</is_goal>
+			<has_manhole>0</has_manhole>
+		</street>
+		<street id="6">
+			<img>1</img> <!-- Frame da imagem -->
+			<x>480</x>
+			<y>0</y>
+			<rotation>0</rotation>
+			<width>200</width>
+			<heigth>80</heigth>
+			<is_gate>0</is_gate>
+			<is_start>0</is_start>
+			<is_goal>0</is_goal>
+			<has_manhole>0</has_manhole>
+		</street>
+		<street id="7">
+			<img>1</img> <!-- Frame da imagem -->
+			<x>680</x>
+			<y>0</y>
+			<rotation>0</rotation>
+			<width>120</width>
+			<heigth>80</heigth>
+			<is_gate>1</is_gate>
+			<is_start>0</is_start>
+			<is_goal>0</is_goal>
+			<has_manhole>0</has_manhole>
+		</street>
+	</streets>
+	<rooms>
+		<room id="1">
+			<img>1</img> <!-- Frame da imagem -->
+			<x>0</x>
+			<y>0</y>
+			<rotation>0</rotation>
+			<width>140</width>
+			<heigth>140</heigth>
+			<door_up>0</door_up> <!-- 0 = sem porta, 1 = porta trancada, 2 = porta aberta -->
+			<door_down>2</door_down>
+			<door_left>0</door_left>
+			<door_right>2</door_right>
+			<is_start>0</is_start>
+			<is_goal>1</is_goal>
+		</room>
+		<room id="2">
+			<img>1</img> <!-- Frame da imagem -->
+			<x>140</x>
+			<y>0</y>
+			<rotation>0</rotation>
+			<width>180</width>
+			<heigth>140</heigth>
+			<door_up>0</door_up> <!-- 0 = sem porta, 1 = porta trancada, 2 = porta aberta -->
+			<door_down>2</door_down>
+			<door_left>0</door_left>
+			<door_right>0</door_right>
+			<is_start>0</is_start>
+			<is_goal>0</is_goal>
+		</room>
+		<room id="3">
+			<img>1</img> <!-- Frame da imagem -->
+			<x>0</x>
+			<y>140</y>
+			<rotation>0</rotation>
+			<width>140</width>
+			<heigth>180</heigth>
+			<door_up>0</door_up> <!-- 0 = sem porta, 1 = porta trancada, 2 = porta aberta -->
+			<door_down>0</door_down>
+			<door_left>0</door_left>
+			<door_right>2</door_right>
+			<is_start>0</is_start>
+			<is_goal>0</is_goal>
+		</room>
+		<room id="4">
+			<img>1</img> <!-- Frame da imagem -->
+			<x>140</x>
+			<y>140</y>
+			<rotation>0</rotation>
+			<width>180</width>
+			<heigth>180</heigth>
+			<door_up>0</door_up> <!-- 0 = sem porta, 1 = porta trancada, 2 = porta aberta -->
+			<door_down>0</door_down>
+			<door_left>0</door_left>
+			<door_right>1</door_right>
+			<is_start>0</is_start>
+			<is_goal>0</is_goal>
+		</room>
+		<room id="5">
+			<img>1</img> <!-- Frame da imagem -->
+			<x>480</x>
+			<y>80</y>
+			<rotation>0</rotation>
+			<width>180</width>
+			<heigth>320</heigth>
+			<door_up>0</door_up> <!-- 0 = sem porta, 1 = porta trancada, 2 = porta aberta -->
+			<door_down>0</door_down>
+			<door_left>0</door_left>
+			<door_right>2</door_right>
+			<is_start>0</is_start>
+			<is_goal>0</is_goal>
+		</room>
+		<room id="6">
+			<img>1</img> <!-- Frame da imagem -->
+			<x>660</x>
+			<y>80</y>
+			<rotation>0</rotation>
+			<width>140</width>
+			<heigth>180</heigth>
+			<door_up>1</door_up> <!-- 0 = sem porta, 1 = porta trancada, 2 = porta aberta -->
+			<door_down>0</door_down>
+			<door_left>0</door_left>
+			<door_right>0</door_right>
+			<is_start>0</is_start>
+			<is_goal>0</is_goal>
+		</room>
+		<room id="7">
+			<img>1</img> <!-- Frame da imagem -->
+			<x>660</x>
+			<y>260</y>
+			<rotation>0</rotation>
+			<width>140</width>
+			<heigth>140</heigth>
+			<door_up>2</door_up> <!-- 0 = sem porta, 1 = porta trancada, 2 = porta aberta -->
+			<door_down>0</door_down>
+			<door_left>2</door_left>
+			<door_right>0</door_right>
+			<is_start>1</is_start>
+			<is_goal>0</is_goal>
+		</room>
+	</rooms>
+</mission>
+</xml>
